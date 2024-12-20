@@ -1,0 +1,14 @@
+1. Corountines bieten vor allem 4 verbesserungeb. Durch Corutines wird der Code vereinfacht indem man z.b keine callbacks verarbeiten muss und ein nahezu sequenteiller code netshet
+ auserdem verbessert es die Leistung weil es keine Threads blokiert und ist dadurch besser als Multithreading. Außerdem sind es geplante Nebenläufigkeietn was die fehglerbehandlung deutlich
+verbessert. Außerdem sind sie leicht einzusetzten und gut integeriert. Außerdem könne sie durch Dispatcher auch die Ressoucenschonung verbessert werden, dies wird auch verbessert
+indem man Funktionen ANhalten und fortsetzten kann.
+2. Es gibt die drei Dispatchers main, io und default. Default ist nicht geeignet weil es nicht wirklich um eine rechenintensive Aufgaben handelt
+da nur Daten abgerufen werden. Main passt nicht da es zwar schnell abgeschloßen werden sein sollte das die Daten abgerufen werden aber es nicht auf dem
+Haupthread ausgelegt. deswegn ist der IO Thread richtig, da es viele E/A-intensive Aufgaben gibt beim abrufen der Daten die nicht auf dem AHuapthread laufen
+3. Zwei ppraxisrelevante EInsatz von Services wäre zum einen z.b die App Spotify da diese meistens im hintergrund läuft und zwischen verschiedenen App
+Komponeneten wie der Hautapp und einem Widget kommunizieren muss, außerdem hat es meistens die selben Aufagben wie Musik abspielen. Eine ander eAnwendung wäre z.b
+Fintennesapps die im hintergrund arbeiten müssen und dabei immer das selbe machen obwohl die HAutapp meist nie in Anwendung ist. bei beiden Anweudnungen muss auch
+die Funktion m,achen wenn die App gewchselt wird oder der Bildscjrim ausgeschalten ist
+4. Vorteile der Kombination sind das durch Coroutines die Serveices nochmal effizineter werden, außerdem ermöglichen Coroutines in Services asynchrone
+Prozesse. So können z.b Lifecycles von CoroutineScope durch Services verwaltete werden. Ein Beispiel aus dem Timer ist, z.b die fetchForecast Methode
+hierbei werden Mithilfe von Coroutines die Werte asychron abgerufen und dann mit einem Service spoäter angezeigt
