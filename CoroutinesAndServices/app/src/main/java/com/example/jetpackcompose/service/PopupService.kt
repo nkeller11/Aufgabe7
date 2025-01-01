@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import android.app.PendingIntent
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.jetpackcompose.MainActivity
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -45,10 +46,15 @@ class PopupService : Service() {
      * Start a Service as a foreground one
      */
     private fun startForegroundService() {
-        //notification the Froground Service wanna use
-        val notification = getNotification("Service is running...")
-        // Start the service in the foreground with the given notification and the id
-        startForeground(1, notification)
+        try {
+            // make a notification
+            val notification = getNotification("Service is running...")
+
+            // Start the foreground service with id 1
+            startForeground(1, notification)
+        } catch (e: Exception) {
+            Log.e("PopupService", "Error starting foreground service: ${e.localizedMessage}")
+        }
     }
 
     override fun onDestroy() {
